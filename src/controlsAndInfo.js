@@ -25,32 +25,34 @@ const ControlsAndInfo = ({ season, city, setCity, setSeason }) => (
                         style={{ fontFamily: "Roboto", fontSize: 16 }}
                     >
                         <div>
-                            This dashboard allows you to explore for yourself
-                            how temperatures are rising across Australia as a
-                            result of climate change. <br />
+                            This dashboard allows you to explore firsthand how
+                            temperatures are rising across Australia due to
+                            climate change. <br />
                             <br />
-                            Use the map to examine how much the average
-                            temperature has increased at 112 research cites
-                            across the nation. Hover for info and click to drill
-                            down further into that location by discovering which
-                            seasons contribute the most to the change, and which
-                            years or periods have seen the largest or smallest
-                            changes. <br />
+                            You can use the map to investigate the extent of the
+                            average temperature increase at 112 research cites
+                            across the nation. Simply hover over a location for
+                            more information and click to delve deeper into that
+                            specific area. Disover which seasons are
+                            contributing the most to the temperature change, and
+                            explore which years or periods have experienced the
+                            greatest or smallest changes.
                             <br />
-                            Data was collected from the Australia Bureau of
+                            <br />
+                            The data was gathered from the Australia Bureau of
                             Meteorology's{" "}
                             <em>
                                 Australia Climate Observations Reference Network
                                 - Surface Air Temperature (ACORN-SAT)
                             </em>{" "}
-                            network, which has over 100 years of temperature
-                            records. Data is available for download via{" "}
+                            network, which holds over 100 years of temperature
+                            records. This data can be downloaded via{" "}
                             <a href="ftp://ftp.bom.gov.au/anon/home/ncc/www/change/ACORN_SAT_daily/ ">
                                 FTP
                             </a>
-                            . Python was used for data wrangling and quality
-                            assurance, React and D3JS were used in dashboard
-                            creation.
+                            . Python was utilised for data wrangling and quality
+                            assurance, while React and D3JS were employed in the
+                            creation of the dashboard.
                         </div>
                     </foreignObject>
                 </g>

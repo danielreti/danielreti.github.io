@@ -75,9 +75,7 @@
 }
 
 .parent {
-    /* overflow-x: auto; */
     display: grid;
-    /* display: flex; */
     grid-template-areas:
         "map season"
         "map season"
@@ -85,8 +83,7 @@
         "info years"
         "info controls";
     grid-template-columns: 40% 60%;
-    grid-template-rows: 35vh 8vh 17vh 28vh;
-    /* grid-template-rows: min-content auto; */
+    grid-template-rows: 35vh 8vh 17vh 28vh 10vh;
 }
 
 .map {
@@ -104,7 +101,6 @@
 .controls {
     grid-area: controls;
     text-align: center;
-    /* padding-top: 20px; */
 }
 
 .info {

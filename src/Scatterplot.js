@@ -5,6 +5,7 @@ import "./App.css";
 import { AxisBottom } from "./AxisBottom";
 import { AxisLeft } from "./AxisLeft";
 import { Marks } from "./Marks";
+import { capitalise } from "./regex";
 
 const width = 1500;
 const height = 550;
@@ -86,12 +87,7 @@ const Scatterplot = ({ city, season }) => {
             >
                 <text className="title" x={10} y={40}>
                     {`Average yearly ${season.toLowerCase()} temperature at `}
-                    <tspan fontWeight="bold">
-                        {city.replace(
-                            /(^\w|\s\w)(\S*)/g,
-                            (_, m1, m2) => m1.toUpperCase() + m2.toLowerCase()
-                        )}
-                    </tspan>
+                    <tspan fontWeight="bold">{capitalise(city)}</tspan>
                 </text>
                 <text className="subtitle" x={10} y={70}>
                     {

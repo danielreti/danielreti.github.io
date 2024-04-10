@@ -7,14 +7,15 @@ import {
     scaleLog,
     extent,
     scaleLinear,
-    max,
+    interpolateViridis,
 } from "d3";
 import { Popup } from "semantic-ui-react";
+import { capitalise } from "../regex";
 const width = 1000;
 const height = 1000;
 
 const australiaMapJSON =
-    "https://raw.githubusercontent.com/nikkisharma536/map_visualization_d3js/master/aust.json";
+    "https://gist.githubusercontent.com/danielreti/93ac06cff888e5efca97d3818511b859/raw/e54a867592bdfc9e8d4bb39836f5ba5e281d7018/AustraliaTopography";
 const locationCoordsURL =
     "https://gist.githubusercontent.com/danielreti/92362782f0ed86078f8696a72ba5df5d/raw/f11b35793b1a1df5caf1e0c059e33d804b5c2534/LocationInfo.csv";
 
@@ -41,11 +42,11 @@ const MapPlot = ({ city, setCity }) => {
         .range([1, 10]);
 
     const colourScale = scaleLinear()
-        .domain([-max(data, (d) => d.AVERAGE), max(data, (d) => d.AVERAGE)])
-        .range(["blue", "red"]);
+        .domain(extent(data, (d) => d.AVERAGE))
+        .range([0, 1]);
 
     const projection = geoMercator()
-        .center([132, -32])
+        .center([134, -32])
         .translate([width / 2, height / 2])
         .scale(1000);
     const path = geoPath().projection(projection);
@@ -79,21 +80,20 @@ const MapPlot = ({ city, setCity }) => {
                                 cy={coordinates[1]}
                                 r={radiusScale(Math.abs(point.AVERAGE))}
                                 stroke={
-                                    city === point.LOCATION ? "yellow" : "black"
+                                    city === point.LOCATION ? "red" : "black"
                                 }
                                 strokeWidth={city === point.LOCATION ? 5 : 1}
-                                fill={colourScale(point.AVERAGE)}
+                                fill={interpolateViridis(
+                                    colourScale(point.AVERAGE)
+                                )}
                                 fillOpacity={0.5}
                                 onClick={() => setCity(point.LOCATION)}
                                 cursor="pointer"
                             />
                         }
-                        content={`${point.LOCATION.replace(
-                            /(^\w|\s\w)(\S*)/g,
-                            (_, m1, m2) => m1.toUpperCase() + m2.toLowerCase()
-                        )}\n${point.AVERAGE > 0 ? "+" : ""}${
-                            Math.round(point.AVERAGE * 100) / 100
-                        }°C `}
+                        content={`${capitalise(point.LOCATION)}\n${
+                            point.AVERAGE > 0 ? "+" : ""
+                        }${Math.round(point.AVERAGE * 100) / 100}°C `}
                         size="small"
                         position="top center"
                         style={{ whiteSpace: "break-spaces" }}
