@@ -1,38 +1,128 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap");
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); */
+
+.tick line {
+    stroke: #c0c0bb;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+    font-size: 2.5em;
+    fill: #393634;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.subtitle {
+    font-size: 1.5em;
+    fill: #393634;
+    font-weight: 100;
+    font-family: "Roboto", sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.axis-label {
+    font-size: 2em;
+    fill: #393634;
+    font-weight: 100;
+    font-family: "Roboto", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.axis-ticks {
+    fill: #302f3a;
+    font-size: 0.8em;
+    font-weight: 100;
+    font-family: "Roboto", sans-serif;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.legend-label {
+    font-size: 1.5em;
+    fill: #635f5d;
+    font-weight: 100;
+    font-family: "Roboto", sans-serif;
+}
+
+.legend-size {
+    font-size: 0.8em;
+    font-weight: 100;
+    font-family: "Roboto", sans-serif;
+}
+
+.legend-selected {
+    font-size: 0.8em;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+}
+
+.legend-selectedChrom {
+    font-size: 0.7em;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+}
+.legend-notSelected {
+    font-size: 0.6em;
+    font-weight: 100;
+    font-family: "Roboto", sans-serif;
+}
+
+.legend-label-gene {
+    font-size: 1em;
+    font-weight: 100;
+    font-family: "Roboto", sans-serif;
+}
+
+.tooltip {
+    font-size: 3em;
+    fill: "blue";
+}
+
+.parent {
+    /* overflow-x: auto; */
+    display: grid;
+    /* display: flex; */
+    grid-template-areas:
+        "map season"
+        "map season"
+        "map years"
+        "info years"
+        "info controls";
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 35vh 8vh 17vh 28vh;
+    /* grid-template-rows: min-content auto; */
+}
+
+.map {
+    grid-area: map;
+}
+
+.season {
+    grid-area: season;
+}
+
+.years {
+    grid-area: years;
+}
+
+.controls {
+    grid-area: controls;
+    text-align: center;
+    /* padding-top: 20px; */
+}
+
+.info {
+    grid-area: info;
+}
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 40%;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
